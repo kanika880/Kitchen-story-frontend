@@ -1,0 +1,73 @@
+<app-updateproduct [productId] = "pId" ></app-updateproduct>
+<app-createproduct></app-createproduct>
+<div class="alert alert-success alert-dismissible fade show" role="alert" [style.display] = "displayAlert">
+    <strong>Product successfully added to cart !</strong>
+    <button type="button" (click) = "onCloseAlert1()" class="close" data-hide="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="alert alert-success alert-dismissible fade show" role="alert" [style.display] = "displayAlertPresent">
+    <strong>Product is already present in the cart !</strong>
+    <button type="button" (click) = "onCloseAlert2()" class="close" data-hide="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container-fluid mt-5 ml-4">
+    <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm)">
+        <input class="form-control" name="search" formControlName="search"
+         type="text" placeholder="Product Search" aria-label="search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <a class="btn btn-success ml-4" data-toggle="modal" data-target="#addProductId" role="button">Add</a>
+
+    </form>
+        <table class="table table-bordered mt-1">
+            <thead>
+                <tr>
+                    <th>
+                        Product Image
+                    </th>
+                    <th>
+                        Product Name
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Price (in Rs.)
+                    </th>
+                    <th>
+                      Description
+                    </th>
+                    <th>
+                    Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let p of products">
+                    <td class="width" style="display: none;">{{ p.id }}</td>
+                    <td><img src="{{ p.imagePath }}" alt="{{ p.name }}" width="100"  height="100"></td>
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.category }}</td>
+                    <td>{{ p.price }}</td>
+                    <td id="description">{{ p.description }}</td>
+                    <td>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a (click) = "addCartClick(p.id)" class="btn btn-success">Add to Cart</a>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <a data-toggle="modal" data-target="#updateProductId"  (click)= "updateClick(p.id)" class="btn btn-warning">Update</a>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a (click) = "deleteClick(p.id)" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+

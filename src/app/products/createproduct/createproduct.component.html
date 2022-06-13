@@ -1,0 +1,89 @@
+<!-- Bootstrap Form with validation -->
+<div class="modal" id="addProductId" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Product</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm)">
+            <div class="modal-body">
+                <div class="form-row">
+                    <!-- Name  -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" formControlName="name"
+                                id="name" aria-describedby="nameHelp" required>
+                        </div>
+                    </div>
+                 </div>
+                    <!-- Price -->
+                    <div class="form-row">
+                       <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="price" class="form-control" name="price" formControlName="price"
+                                id="price" aria-describedby="priceHelp" required>
+                        </div>
+                       </div>
+                    </div>
+                    <!-- Decsription -->
+                    <div class="form-row">
+                       <div class="col-sm-6">
+                           <div class="form-group">
+                               <label for="description">Description</label>
+                               <input type="description" class="form-control" name="description" formControlName="description"
+                                id="description" aria-describedby="descriptionHelp" required>
+                        </div>
+                           </div>
+                       </div>
+        
+                    <!-- Category -->
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <input type="category" class="form-control" name="category" formControlName="category"
+                                 id="category" aria-describedby="categoryHelp" required>
+                         </div>
+                            </div>
+                    </div>
+        
+                    <!-- Image -->
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="role">Image</label>
+                                <select required class="form-control" name="image" formControlName="image"
+                                id="image" aria-describedby="imageHelp"> 
+                                    <option *ngFor = "let item of image | keyvalue" value="{{ item.value }}">{{ item.key }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Seller -->
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="seller">Seller</label>
+                                <input type="seller" class="form-control" name="seller" formControlName="seller"
+                                 id="seller" aria-describedby="sellerHelp" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-md" >Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>   
+            </form>
+        </div>   
+    </div>
+</div>
+
+

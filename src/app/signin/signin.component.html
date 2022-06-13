@@ -1,0 +1,41 @@
+<!-- Bootstrap Form with validation -->
+ <div class="container mt-5" [class]="'bg-one'" [style.display]="isDisplay">
+     <h3>Sign In : </h3>
+     <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm)">
+         <div class="form-row">
+             <!--  Username -->
+             <div class="col-sm-6">
+                 <div class="form-group">
+                     <label for="name">Username</label>
+                     <input type="text" class="form-control" name="username" formControlName="username"
+                         id="username" aria-describedby="usernameHelp" required>
+                 </div>
+             </div>
+             </div>
+             <!-- Password -->
+             <div class="form-row">
+                <div class="col-sm-6">
+                 <div class="form-group">
+                     <label for="password">Password</label>
+                     <input type="password" class="form-control" name="password" formControlName="password"
+                         id="password" aria-describedby="passwordHelp" required>
+                 </div>
+                </div>
+             </div>
+             <!-- Role -->
+             <div class="form-row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select required class="form-control" name="role" formControlName="role"
+                        id="role" aria-describedby="roleHelp">
+                            <option selected disabled hidden>Open this select menu</option>
+                            <option value="admin">As Admin</option>
+                            <option value="user">As User</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+         <button type="submit" class="btn btn-primary btn-md" >Sign in</button>
+     </form>
+ </div>

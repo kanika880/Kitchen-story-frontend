@@ -1,0 +1,26 @@
+<div class="modal" id="account" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Hello {{ user["name"] }}!!</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <li>Name : {{ user["username"] }}</li>
+              <li>Wallet Balance (in Rs.) : {{ user["walletBalance"] }}</li>
+              <br>
+              <li><button class="btn btn-primary" (click)="addAmount(500)">Add 500</button></li>
+              <br>
+              <li><button class="btn btn-primary" (click)="addAmount(1000)">Add 1000</button></li>
+              <br>
+              <li><button class="btn btn-primary" (click)="addAmount(5000)">Add 5000</button></li>
+              <br>
+              <li><button class="btn btn-primary" (click)="addAmount(10000)">Add 10000</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
